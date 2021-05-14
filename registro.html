@@ -68,11 +68,16 @@
                                 <label for="email">Email</label>
                                 <input type="email" name="email" id="email" class="form-control">
                             </div>
-
+                           
                             <div class="form-group text-black container">
-                                <label for="rut">rut</label>
-                                <input type="text" name="rut" id="rut" class="form-control">
+                                <label for="ingrese rut">ingrese rut</label> <br>   
+                                <input type="text" calss="form-control" id="rut" name="rut" required oninput="checkRut(rut)">
+                               
+                                
+                                
                             </div>
+                          
+                            
         
                             <div class="form-group text-black container">
                                 <label for="contraseña">contraseña</label>
@@ -84,6 +89,10 @@
                             </div>
         
                             <input type="submit" class="btn btn-danger" value="Enviar" id="enviar">
+                            <script src="rut_validacion.js">
+                                
+                            </script>
+                            
                             <input type="reset" value="Limpiar" class="btn btn-primary" id="limpiar">
                             <div class="alert alert-danger my-5" id="error"></div>
                         </form>
@@ -92,6 +101,8 @@
                        
                         
                     </div>
+
+                    
                 </div>
  
             </div>
@@ -124,6 +135,7 @@
                 
                 if($("#rut").val().trim().length == 0){
                     mensaje = "El rut esta en blanco"
+                    
                 }
                 if($("#contraseña").val().trim().length == 0){
                     mensaje = "La contraseña esta en blanco"
@@ -139,11 +151,23 @@
                     $("#error").show();
                     event.preventDefault();
                 }
-              
-            
+        
             });
-        });
+
+
+
+          
+  
+
+         });
     </script>
+    
+
+
+
+
+
+
 
 
 
