@@ -10,7 +10,7 @@
 
     <title>lista de deportes</title>
   </head>
-  <body class="bg-dark">
+  <body class="">
 
          <!-- barra de nav -->
 
@@ -18,7 +18,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <a class="navbar-brand" href="index.html">
                 <img src="imagenes/icono.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                
+                Status del deporte
             </a>
             <div class = "container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,6 +44,7 @@
             </div>
             
             <form class="form-inline">
+                
                 <input class="form-control mr-sm-2" type="search" placeholder="Buscador" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
@@ -51,8 +52,8 @@
         </div>
 
         <h3 class="text-primary text-center ">Lo mejor de la liga española</h3>
-        <p class="text-primary text-center">aqui podras encontrar mucha informacion de la liga española mas todas sus ligas, <br>
-            desde la division mas baja a la mas alta <br>
+        <p class="text-primary text-center">Aqui podras encontrar informacio de las ligas españolas hay una gran mayoria de deportes con su sitio web, 
+            <br> año de creacion, primer evento y mas.<br>
             <img src="imagenes/la_liga.jpg" height="150" alt="">
 
 
@@ -70,16 +71,25 @@
         <div class="row">
             <table class="table" id="categorias">
                 <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Imagen</th>
-                        <th scope="col">Descripción</th>
+                    <tr class="text-center">
+                        <th scope="col">id</th> <br>
+                        <th scope="col">Deporte</th>
+                        <th scope="col">Liga</th>
+                        <th scope="col">N° de copas</th>
+                        <th scope="col">Año</th>
+                        <th scope="col">Año de creacion</th>
+                        <th scope="col">Primer evento</th>
+                        <th scope="col">Genero</th>
+                        <th scope="col">Pais</th>
+                        <th scope="col">Sitio Web</th>
+                        <th scope="col">Descripcion</th>
                     </tr>
                 </thead>
-            </table>
+        
         </div>
     </div>
+
+    
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -98,12 +108,23 @@
   
           function(data){
   
-            $.each(data.categories, function(i, item){
+            $.each(data.countrys, function(i, item){
   
-              $("#categorias").append("<tr><td>" +item.idCategory+"</td><td>" + item.strCategory + "</td><td> <img src='" +item.strCategoryThumb+"'>" + "</td><td>" + item.strCategoryDescription + "</td></tr>");
-  
-  
-  
+              $("#categorias").append("<tr><td>" +item.idLeague+"</td><td>" + item.strSport + "<td>"+item.strLeague +"</td>"   
+                + "<td>" +item.idCup + "</td>"
+                + "<td>" + item.strCurrentSeason  + "</td>"
+                + "<td>" + item.intFormedYear  + "</td>"
+                + "<td>" + item.dateFirstEvent  + "</td>"
+                    + "<td>" + item.strGender + "</td>"
+                    + "<td>" + item.strCountry + "</td>"
+                    + "<td>" + item.strWebsite + "</td>"
+                    + "<td>" + item.strDescriptionEN + "</td>"
+              
+                
+                );
+
+           
+
             });
   
           });
@@ -111,6 +132,7 @@
       });
   
     </script>
+
     
   </body>
 </html>

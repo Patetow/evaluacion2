@@ -10,7 +10,7 @@
 
     <title>lista de deportes</title>
   </head>
-  <body class="bg-dark">
+  <body>
 
          <!-- barra de nav -->
 
@@ -18,7 +18,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <a class="navbar-brand" href="index.html">
                 <img src="imagenes/icono.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                
+                Status del deporte
             </a>
             <div class = "container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,13 +60,16 @@
             <button type="button" class="btn btn-primary" id="enviar">Traer datos</button>
         </div>
         <div class="row">
-            <table class="table" id="categorias">
+            <table class="table" id="sports">
                 <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
+                    <tr class="text-center">
+                        <th scope="col">id</th>
+                        <th scope="col">Deporte</th>
+                        <th scope="col">Formato</th>
                         <th scope="col">Imagen</th>
+                        <th scope="col"></th>
                         <th scope="col">Descripción</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
             </table>
@@ -86,16 +89,20 @@
     <script>
 
       $("#enviar").click(function(){
-          
-  
         $.get("https://www.thesportsdb.com/api/v1/json/1/all_sports.php",
   
           function(data){
   
-            $.each(data.categories, function(i, item){
+            $.each(data.sports, function(i, item){
   
-              $("#categorias").append("<tr><td>" +item.idCategory+"</td><td>" + item.strCategory + "</td><td> <img src='" +item.strCategoryThumb+"'>" + "</td><td>" + item.strCategoryDescription + "</td></tr>");
-  
+            $("#sports").append("<tr><td>" 
+                +item.idSport+"</td><td>" + item.strSport + "<td>" 
+                +item.strFormat +"</td><td> <img src='" +item.strSportThumb+"'>" + "</td><td>"+ "<td>" 
+                +item.strSportDescription+"</td><td>"
+                 
+          
+            
+            );
   
   
             });
@@ -105,17 +112,8 @@
       });
   
     </script>
-
-      <!--pie de pagina --> 
-
-   <div class=" bg-secondary">
-    <footer>
-        <p id="num2">Numero de la pizzeria</p> <p id="hh">+569 44702447 <img src="imagenes/whatsapp.png" height="30" alt=""> </p>
-        <p id="insta">Instagram</p> <p id="ii">@PIZZARICO_.<img src="imagenes/instagram.png" height="30" alt=""> </p>
-        <p id="dire">Nuestra direccion</p> <p id="AV">Av. Siempre viva con Recoleta #4477 segundo piso</p>
-        
-
-    </footer>
-    
+   
   </body>
+
+  
 </html>
